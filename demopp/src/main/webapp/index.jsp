@@ -1,7 +1,7 @@
 <%@ page  contentType="text/html; charset=utf-8" %>
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Hello</h2>
 <a href="/demopp/list.sw">....</a>
 <table id="emplist">
 <thead>
