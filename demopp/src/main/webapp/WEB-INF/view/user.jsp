@@ -1,32 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
   <meta name="description" content="">
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
+<title>Insert title here</title>
+<!--dashboard calendar-->
 
-  <title>AdminEx</title>
-  
-  
-  
-
-  <!--dashboard calendar-->
-  <link href="/demopp/css/clndr.css" rel="stylesheet">
 
 
 
   <!--common-->
   <link href="/demopp/css/style.css" rel="stylesheet">
   <link href="/demopp/css/style-responsive.css" rel="stylesheet">
-
-
-
-
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -72,7 +64,7 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.jsp"><i class="fa fa-home"></i> <span>主页</span></a></li>
+                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>主页</span></a></li>
                 <li class="menu-list"><a href=""> <span>商品类别维护</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="/demopp/classify.sw">类别维护</a></li>
@@ -151,9 +143,38 @@
                 </ul>
             </div> 
         </div>
-     <div class="main-content" style="min-height: 800px">
+     <div style="min-height: 800px">
      <h3>这是管理员界面</h3>
-    
+    <div class="container ">
+		<table class="table table-hover" >
+			<tr>
+				<td>用户ID</td>
+				<td>用户名</td>
+				<td>密码</td>
+				<td>真实姓名</td>
+				<td>联系电话</td>
+				<td>地址</td>
+				<td>邮编</td>
+				<td>头像</td>
+				<td>等级</td>
+				<td>管理操作</td>
+			</tr>
+			<c:forEach items="${userlist }" var="u">
+			<tr>
+				<td>${u.uid }</td>
+				<td>${u.username }</td>
+				<td>${u.password }</td>
+				<td>${u.realName }</td>
+				<td>${u.tel }</td>
+				<td>${u.address }</td>
+				<td>${u.postcode }</td>
+				<td>${u.userPhoto }</td>
+				<td>${u.userGrade }</td>
+				<td><a href="/demopp/toupuser.sw?uid=${u.uid }">修改</a></td>
+			</tr>
+			</c:forEach>
+		</table>
+	</div>
      </div>
     </div>
 </section>
@@ -167,18 +188,14 @@
 <script src="/demopp/js/jquery.nicescroll.js"></script>
 
 
-<!--Calendar-->
-<script src="/demopp/js/calendar/clndr.js"></script>
-<script src="/demopp/js/calendar/evnt.calendar.init.js"></script>
-<script src="/demopp/js/calendar/moment-2.2.1.js"></script>
 
 
 <!--common scripts for all pages-->
 <script src="/demopp/js/scripts.js"></script>
 
-<script type="text/javascript">
 
-</script>
+
 
 </body>
+
 </html>

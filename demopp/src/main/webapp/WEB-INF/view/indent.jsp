@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
-  <meta name="description" content="">
-  <meta name="author" content="ThemeBucket">
-  <link rel="shortcut icon" href="#" type="image/png">
-
-  <title>AdminEx</title>
-  
-  
-  
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="keywords"
+	content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+<meta name="description" content="">
+<meta name="author" content="ThemeBucket">
+<link rel="shortcut icon" href="#" type="image/png">
+<title>Insert title here</title>
   <!--dashboard calendar-->
   <link href="/demopp/css/clndr.css" rel="stylesheet">
 
@@ -72,7 +72,7 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.jsp"><i class="fa fa-home"></i> <span>主页</span></a></li>
+                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>主页</span></a></li>
                 <li class="menu-list"><a href=""> <span>商品类别维护</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="/demopp/classify.sw">类别维护</a></li>
@@ -151,9 +151,39 @@
                 </ul>
             </div> 
         </div>
-     <div class="main-content" style="min-height: 800px">
+     <div  style="min-height: 800px">
      <h3>这是管理员界面</h3>
-    
+    	<h1>订单</h1>
+	<div class="container">
+		<table class="table table-hover">
+			<tr>
+				<td>订单ID</td>
+				<td>订单编号</td>
+				<td>下单人ID</td>
+				<td>寄件人姓名</td>
+				<td>寄件地址</td>
+				<td>寄件人电话</td>
+				<td>寄件时间</td>
+				<td>付款方式</td>
+				<td>快件状态</td>
+				<td>管理操作</td>
+			</tr>
+			<c:forEach items="${orlist }" var="o">
+			<tr>
+				<td>${o.oid }</td>
+				<td>${o.oNO }</td>
+				<td>${o.userId }</td>
+				<td>${o.sendName }</td>
+				<td>${o.sendAdress }</td>
+				<td>${o.sendTel }</td>
+				<td>${o.sendTime }</td>
+				<td>${o.payment }</td>
+				<td>${o.state }</td>
+				<td><a href="#">D</a></td>
+			</tr>
+			</c:forEach>
+		</table>
+	</div>
      </div>
     </div>
 </section>
@@ -181,4 +211,6 @@
 </script>
 
 </body>
+
+
 </html>

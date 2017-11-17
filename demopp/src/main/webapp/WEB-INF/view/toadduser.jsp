@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
-  <meta name="description" content="">
-  <meta name="author" content="ThemeBucket">
-  <link rel="shortcut icon" href="#" type="image/png">
-
-  <title>AdminEx</title>
-  
-  
-  
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="keywords"
+	content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+<meta name="description" content="">
+<meta name="author" content="ThemeBucket">
+<link rel="shortcut icon" href="#" type="image/png">
+<title>Insert title here</title>
   <!--dashboard calendar-->
   <link href="/demopp/css/clndr.css" rel="stylesheet">
 
@@ -72,7 +69,7 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.jsp"><i class="fa fa-home"></i> <span>主页</span></a></li>
+                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>主页</span></a></li>
                 <li class="menu-list"><a href=""> <span>商品类别维护</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="/demopp/classify.sw">类别维护</a></li>
@@ -153,7 +150,19 @@
         </div>
      <div class="main-content" style="min-height: 800px">
      <h3>这是管理员界面</h3>
-    
+    <h3>添加用户</h3>
+
+
+<form action="/demopp/adduser.sw" method="post">
+
+用户名:<input type="text" name="username" /><br>
+密 &nbsp;&nbsp;&nbsp;码:<input type="password" name="password" /><br>
+姓 &nbsp;&nbsp;&nbsp;名:<input type="text" name="realName" placeholder="真实姓名"><br>
+电 &nbsp;&nbsp;&nbsp;话:<input type="text" name="tel"><br>
+地 &nbsp;&nbsp;&nbsp;址:<input type="text" name="address"><br>
+邮 &nbsp;&nbsp;&nbsp;编:<input type="text" name="postcode" placeholder="8位数以内"><br>
+头 &nbsp;&nbsp;&nbsp;像:<input type="file" name="userPhoto"><br>
+<input type="submit" value="保存" >
      </div>
     </div>
 </section>
@@ -180,5 +189,9 @@
 
 </script>
 
+
+</form>
+
 </body>
+
 </html>
