@@ -1,9 +1,17 @@
 package demo.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +34,12 @@ public class Product {
 	private Double saleprice;//销售价格
 	private String introduce;//描述
 	private Integer sid;//外键sortsid
+	
+	@ManyToOne
+	@JoinColumn(name="sid",insertable=false,updatable=false)
+	private Sort sort;
+	
+
 	public Integer getPid() {
 		return pid;
 	}
@@ -74,6 +88,16 @@ public class Product {
 	public void setSid(Integer sid) {
 		this.sid = sid;
 	}
+	
+	public Sort getSort() {
+		return sort;
+	}
+	public void setSort(Sort sort) {
+		this.sort = sort;
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Product [pid=" + pid + ", pname=" + pname + ", saleCount=" + saleCount + ", image=" + image + ", price="

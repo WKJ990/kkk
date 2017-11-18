@@ -1,5 +1,7 @@
 package demo.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +24,22 @@ public class UserController {
 	private UserService us;
 	
 	@RequestMapping("/user")
-	public ModelAndView  list() {
+	public ModelAndView  list(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("userlist", us.find("from Users"));
+		
+		String username = request.getParameter("username");//用户名
+		String realName = request.getParameter("realName");//真实姓名
+		
+		String hql = " select u from Users u where 1=1 ";
+		
+		if(username!=null&&!"".equals("username")) {
+			hql += " and u.username like '%"+username+"%'";
+		}
+		if(realName!=null&&!"".equals(realName)) {
+			hql += " and u.realName like '%"+realName+"%'";
+		}
+		
+		mv.addObject("userlist", us.find(hql));
 		mv.setViewName("/user");
 		return mv;
 	}

@@ -5,9 +5,12 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
+import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
+
+import demo.bean.Sort;
 
 /**
  * Àà±ð
@@ -15,7 +18,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-@Component("empdao")
+@Component("sortdao")
 public class SortDao extends HibernateDaoSupport {
 
 	@Resource(name="sessionFactory")
@@ -42,8 +45,20 @@ public class SortDao extends HibernateDaoSupport {
 	  return	super.getHibernateTemplate().find(hql);
 	}
 	@Transactional
-	public List load(Class claxx,Integer id) {
-		return super.getHibernateTemplate().load(claxx, id);
+	public Object load(Class claxx,Integer id) {
+		return super.getHibernateTemplate().get(claxx, id);
+	}
+	
+	@Transactional
+	public void del(Integer id) {
+		Sort sort = new Sort();
+		sort.setSid(id);
+		super.getHibernateTemplate().delete(sort);
+	}
+	
+	@Transactional
+	public void update(Object sort) {
+		super.getHibernateTemplate().update(sort);
 	}
 	
 }

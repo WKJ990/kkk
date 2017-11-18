@@ -40,4 +40,13 @@ public class ProDao extends HibernateDaoSupport {
 	public List find(String hql) {
 	  return	super.getHibernateTemplate().find(hql);
 	}
+	
+	@Transactional
+	public Object load(Class claxx,Integer id) {
+		return super.getHibernateTemplate().get(claxx, id);
+	}
+	@Transactional
+	public void update(Object obj) {
+		super.getHibernateTemplate().update(obj);
+	}
 }

@@ -29,4 +29,13 @@ public class ProService {
 	public List find(String hql) {
 	  return	prodao.find(hql);
 	}
+	
+	@Transactional
+	public Object load(Class claxx,Integer id) {
+		return prodao.load(claxx,id);
+	}
+	@Transactional
+	public void update(Object obj) {
+		prodao.update(obj);
+	}
 }
