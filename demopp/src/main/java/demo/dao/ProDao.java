@@ -49,4 +49,5 @@ public class ProDao extends HibernateDaoSupport {
 	public void update(Object obj) {
 		super.getHibernateTemplate().update(obj);
 	}
+
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+       <%@ taglib uri="http://jpager.com/taglibs/page" prefix="page"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,8 +26,11 @@
 				<td>邮编</td>
 				<td>头像路径</td>
 				<td>等级</td>
+				<td>积分</td>
 			</tr>
-			<c:forEach items="${userlist }" var="u">
+			<page:pager dz="10">
+			<c:forEach items="${userlist }" var="u" varStatus="status">
+			<page:item nr="${status.count}">
 			<tr>
 				<td>${u.uid }</td>
 				<td>${u.username }</td>
@@ -37,8 +41,12 @@
 				<td>${u.postcode }</td>
 				<td>${u.userPhoto }</td>
 				<td>${u.userGrade }</td>
+				<td>${u.userintegral }</td>
 			</tr>
+			</page:item>
 			</c:forEach>
+			</page:pager>
+			<tr><td colspan="10" align="center"><page:bt/></td></tr>
 		</table>
 </body>
 

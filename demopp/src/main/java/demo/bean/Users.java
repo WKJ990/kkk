@@ -26,6 +26,7 @@ public class Users {
 	private String postcode;//邮编
 	private String userPhoto;//用户图片 路径
 	private String userGrade;//用户等级
+	private String userintegral;//用户积分
 	public Integer getUid() {
 		return uid;
 	}
@@ -80,12 +81,20 @@ public class Users {
 	public void setUserGrade(String userGrade) {
 		this.userGrade = userGrade;
 	}
+	
+	public String getUserintegral() {
+		return userintegral;
+	}
+	public void setUserintegral(String userintegral) {
+		this.userintegral = userintegral;
+	}
 	@Override
 	public String toString() {
 		return "Users [uid=" + uid + ", username=" + username + ", password=" + password + ", realName=" + realName
 				+ ", tel=" + tel + ", address=" + address + ", postcode=" + postcode + ", userPhoto=" + userPhoto
-				+ ", userGrade=" + userGrade + "]";
+				+ ", userGrade=" + userGrade + ", userintegral=" + userintegral + "]";
 	}
+	
 	
 	
 }

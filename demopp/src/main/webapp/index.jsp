@@ -25,6 +25,16 @@ width: 100%
 
 </style>
 
+<script type="text/javascript">
+     
+      <% String na = request.getParameter("name");
+      session.setAttribute("name1", na);
+      %>
+     
+     
+ 
+</script>
+
 
 
 
@@ -95,34 +105,28 @@ width: 100%
 						<ul class="sub-menu-list">
 							<li><a target="myiframe" href="/shop/classify.sw">类别维护</a></li>
 							<li><a target="myiframe" href="/shop/toaddclassify.sw" >添加类别</a></li>
-							<li><a>类别维护</a></li>
-							<li><a>查询类别</a></li>
+							
 						</ul></li>
 					<li class="menu-list"><a href=""></i> <span>商品信息维护</span></a>
 						<ul class="sub-menu-list">
 							<li><a target="myiframe" href="/shop/message.sw">信息维护</a></li>
 							<li><a target="myiframe" href="/shop/toaddmessage.sw" >添加信息</a></li>
-							<li><a>信息维护</a></li>
-							<li><a>查询信息</a></li>
 						</ul></li>
 					<li class="menu-list"><a href=""> <span>用户管理</span></a>
 						<ul class="sub-menu-list">
 							<li><a target="myiframe" href="/shop/user.sw">用户管理</a></li>
 							<li><a target="myiframe" href="/shop/toadduser.sw">添加用户</a></li>
-							<li><a>删除用户</a></li>
-							<li><a>查询用户</a></li>
+						
 						</ul></li>
 					<li class="menu-list"><a href=""><span>订单管理</span></a>
 						<ul class="sub-menu-list">
 							<li><a target="myiframe" href="/shop/indent.sw">订单管理</a></li>
-							<li><a>订单查询</a></li>
-							<li><a>订单管理</a></li>
+							<li><a target="myiframe" href="/shop/toindent.sw">修改状态</a></li>
 						</ul></li>
 					<li class="menu-list"><a href=""><span>管理员管理</span></a>
 						<ul class="sub-menu-list">
-							<li><a href="#">管理员</a></li>
-							<li><a>管理员</a></li>
-							<li><a>管理员</a></li>
+							<li><a target="myiframe" href="/shop/manage.sw">管理员</a></li>
+							
 						</ul></li>
 
 				</ul>
@@ -152,20 +156,17 @@ width: 100%
 					<ul class="notification-menu">
 						<li><a href="#" class="btn btn-default dropdown-toggle"
 							data-toggle="dropdown"> <img
-								src="images/photos/user-avatar.png" alt="" /> 管理员 <span
+								src="images/photos/user-avatar.png" alt="" /> <%= session.getAttribute("name1") %> <span
 								class="caret"></span>
 						</a>
 							<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-								<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-								<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-								<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+								<li><a href="/shop/login/login.jsp"><i class="fa fa-user"></i>退出</a></li>
 							</ul></li>
 
 					</ul>
 				</div>
 			</div>
 			<div class="container">
-				
 				<div class="frame">
 					<iframe width=100%; height=100%; name="myiframe" frameborder=0
 						marginheight=0 marginwidth=0 scrolling=no

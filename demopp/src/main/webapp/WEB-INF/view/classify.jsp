@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://jpager.com/taglibs/page" prefix="page"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +21,9 @@
 				<td>狀態</td>
 				<td>管理操作</td>
 			</tr>
-			<c:forEach items="${sortlist }" var="s">
+			<page:pager dz="10">
+			<c:forEach items="${sortlist }" var="s" varStatus="status">
+			<page:item nr="${status.count}">
 			<tr>
 				<td>${s.sid }</td>
 				<td>${s.sname }</td>
@@ -30,7 +33,10 @@
 				<a href="/shop/sclass.sw?sid=${s.sid }">${s.sstate eq "0" ? "上架" : " " }</a>
 				</td>
 			</tr>
+			</page:item>
 			</c:forEach>
+			</page:pager>
+			<tr><td colspan="5" align="center"><page:bt/></td></tr>
 		</table>
 </body>
 

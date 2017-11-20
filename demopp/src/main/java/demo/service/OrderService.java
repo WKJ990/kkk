@@ -28,4 +28,13 @@ public class OrderService {
 	public List find(String hql) {
 	  return	orderdao.find(hql);
 	}
+	
+	@Transactional
+	public Object load(Class claxx,Integer id) {
+		return orderdao.load(claxx, id);
+	}
+	@Transactional
+	public void update(Object obj) {
+		orderdao.update(obj);
+	}
 }

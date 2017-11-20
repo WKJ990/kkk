@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import demo.bean.Admin;
 import demo.bean.Users;
 import demo.service.UserService;
 
@@ -85,5 +86,51 @@ public class UserController {
 		mv.setViewName("redirect:/user.sw");
 		return mv;
 	}
+	
+	/**
+	 * 管理员
+	 * @return
+	 */
+	@RequestMapping("/manage")
+	public ModelAndView  manage() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("managelist", us.find("from Admin"));
+		mv.setViewName("/manage");
+		return mv;
+	}
+	
+	/**
+	 * 取消管理员
+	 * @param aid
+	 * @return
+	 */
+	@RequestMapping("/tomanage")
+	public ModelAndView  tomanage(@RequestParam(name="aid") Integer aid) {
+		ModelAndView mv = new ModelAndView();
+		Admin ad = (Admin)us.load(Admin.class, aid);
+		
+			ad.setPermissions(0);
+		us.update(ad);
+		mv.setViewName("redirect:/manage.sw");
+		return mv;
+	}
+	
+	/**
+	 * 设置为管理员
+	 * @param aid
+	 * @return
+	 */
+	@RequestMapping("/tomanages")
+	public ModelAndView  tomanages(@RequestParam(name="aid") Integer aid) {
+		ModelAndView mv = new ModelAndView();
+		Admin ad = (Admin)us.load(Admin.class, aid);
+		
+			ad.setPermissions(1);
+		us.update(ad);
+		mv.setViewName("redirect:/manage.sw");
+		return mv;
+	}
+	
+	
 
 }

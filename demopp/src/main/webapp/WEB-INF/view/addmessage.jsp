@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,7 @@
 <body>
 	<h2>添加</h2>
 	<form action="/shop/addmassage.sw" method="post">
-		<table>
+		<table class="table table-striped">
 
 			<tr>
 				<td>商品名稱</td>
@@ -26,10 +27,10 @@
 			</tr>
 			<tr>
 				<td>商品圖片(副图)</td>
-				<td><input type="file" name="pphoto1">
-				<input type="file" name="pphoto2">
-				<input type="file" name="pphoto3">
-				<input type="file" name="pphoto4">
+				<td><input type="file" name="w_img">
+				<input type="file" name="s_img">
+				<input type="file" name="a_img">
+				<input type="file" name="d_img">
 				</td>
 			</tr>
 			<tr>

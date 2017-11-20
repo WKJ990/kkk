@@ -8,10 +8,15 @@
 </head>
 <body>
 <form action="/shop/addclassify.sw" method="post" >
-类别名称:<input type="text" name="sname"><br>
-类别图片:<input type="file" name="sPhoto"><br>
-商品狀態:<input type="radio" name="sstate" value="1" checked="checked">上架<input type="radio" name="sstate" value="0">下架<br>
-<input type="submit" name="保存">
+<table class="table table-striped">
+<tr><td>类别名称:</td><td><input type="text" name="sname"></td></tr>
+<tr><td>类别图片:</td><td><input type="file" name="sPhoto"></td></tr>
+<tr><td>商品狀態:</td><td><input type="radio" name="sstate" value="1" checked="checked">上架<input type="radio" name="sstate" value="0">下架</td></tr>
+<tr><td colspan="2"><input type="submit" name="保存"></td></tr>
+</table>
 </form>
 </body>
+<link rel="stylesheet" href="/shop/bootstrap.min.css">
+<script src="/shop/jquery-3.2.1.min.js"></script>
+<script src="/shop/bootstrap.min.js"></script>
 </html>

@@ -60,7 +60,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.10.RELEASE</version>
 		</dependency>
-    
+    <dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper</artifactId>
+    <version>5.0.0</version>
+</dependency> 
   </dependencies>
   <build>
     <finalName>demopp</finalName>

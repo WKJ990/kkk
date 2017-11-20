@@ -12,7 +12,7 @@
 <form action="/shop/upme.sw" method="post">
 <input type="hidden" value="${prolist.pid }" name="pid">
 
-		<table>
+		<table class="table table-striped">
 
 			<tr>
 				<td>商品名稱</td>
@@ -26,14 +26,7 @@
 				<td>商品圖片(主图)</td>
 				<td><input type="file" name="image"></td>
 			</tr>
-			<tr>
-				<td>商品圖片(副图)</td>
-				<td><input type="file" name="pphoto1">
-				<input type="file" name="pphoto2">
-				<input type="file" name="pphoto3">
-				<input type="file" name="pphoto4">
-				</td>
-			</tr>
+			
 			<tr>
 				<td>原價</td>
 				<td><input type="text" name="price" value="${prolist.price }"></td>
@@ -60,4 +53,8 @@
 	</form>
 
 </body>
+<link rel="stylesheet" href="/shop/bootstrap.min.css">
+<script src="/shop/jquery-3.2.1.min.js"></script>
+<script src="/shop/bootstrap.min.js"></script>
+
 </html>

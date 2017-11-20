@@ -1,5 +1,8 @@
 package demo.web;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import demo.bean.Photo;
+import com.github.pagehelper.PageInfo;
+
+import demo.bean.Pro_img;
 import demo.bean.Product;
 import demo.service.ProService;
 import demo.service.SortService;
@@ -31,7 +36,7 @@ public class ProController {
 		String pname = request.getParameter("pname");
 		String introduce = request.getParameter("introduce");
 		String sid = request.getParameter("sid");
-		//System.err.println("商品名稱:"+pname+"描述"+introduce);
+		
 		String hql = " select p from Product p where 1=1 ";
 		if(pname!=null&&!"".equals(pname)) {
 			hql += " and p.pname like '%"+pname+"%'" ;
@@ -45,6 +50,7 @@ public class ProController {
 		System.out.println("hql"+hql);
 		mv.addObject("solist", sort.find("from Sort"));
 		mv.addObject("prolist", pro.find(hql));
+		 
 		mv.setViewName("/message");
 		return mv;
 	}
@@ -58,10 +64,18 @@ public class ProController {
 	}
 	
 	@RequestMapping("/addmassage")
-	public ModelAndView  add(Product product,Photo ph) {
+	public ModelAndView  add(Product product,Pro_img ph) {
 		ModelAndView mv = new ModelAndView();
+		String str = "/shop/images/";
+		product.setImage(str+product.getImage());
 		pro.add(product);
-		ph.setPid(product.getPid());
+	  System.err.println("ID"+product.getPid());
+	    ph.setPid(product.getPid());
+	    ph.setW_img(str+ph.getW_img());
+	    ph.setS_img(str+ph.getS_img());
+		ph.setA_img(str+ph.getA_img());
+		ph.setD_img(str+ph.getD_img());
+
 		pro.add(ph);
 		mv.setViewName("redirect:/message.sw");
 		return mv;
@@ -77,11 +91,11 @@ public class ProController {
 	}
 	
 	@RequestMapping("/upme")
-	public ModelAndView  up(Product product,Photo photo) {
+	public ModelAndView  up(Product product) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("ID："+product.getPid());
 		Product old = (Product)pro.load(Product.class, product.getPid());
-		Photo ph = (Photo)pro.load(Photo.class, product.getPid());
+		Pro_img ph = (Pro_img)pro.load(Pro_img.class, product.getPid());
 		old.setSaleprice(product.getSaleprice());
 		old.setImage(product.getImage());
 		old.setIntroduce(product.getIntroduce());
@@ -91,12 +105,37 @@ public class ProController {
 		
 		pro.update(old);
 		
-		ph.setPphoto1(photo.getPphoto1());
-		ph.setPphoto2(photo.getPphoto2());
-		ph.setPphoto3(photo.getPphoto3());
-		ph.setPphoto4(photo.getPphoto4());
+		
+		mv.setViewName("redirect:/message.sw");
+		return mv;
+	}
+	
+	@RequestMapping("/tofutu")
+	public ModelAndView  tofutu(@RequestParam(name="pid") Integer pid) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("photolist",pro.load(Pro_img.class, pid) );
+		mv.setViewName("/futu");
+		return mv;
+	}
+	
+	/**
+	 * 添加附图
+	 * @param product
+	 * @return
+	 */
+	@RequestMapping("/futu")
+	public ModelAndView  futu(Pro_img phs) {
+		ModelAndView mv = new ModelAndView();
+		//System.out.println("ID："+product.getPid());
+		Pro_img ph = (Pro_img)pro.load(Pro_img.class, phs.getPid());
+		
+		ph.setW_img(phs.getW_img());
+		ph.setA_img(phs.getA_img());
+		ph.setS_img(phs.getS_img());
+		ph.setD_img(phs.getD_img());
 		
 		pro.update(ph);
+		
 		mv.setViewName("redirect:/message.sw");
 		return mv;
 	}

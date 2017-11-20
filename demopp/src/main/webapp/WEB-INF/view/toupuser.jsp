@@ -10,7 +10,7 @@
 
 		
 			<h3>这是管理员界面</h3>
-			<table>
+			<table class="table table-striped">
 				<form action="/shop/upuser.sw" method="post">
 					<tr>
 						<td colspan="2"><input type="hidden" name="uid"
