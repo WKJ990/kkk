@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>订单状态</h1>
 	<table class="table table-striped">
 		<tr>
 			<td>订单编号</td>

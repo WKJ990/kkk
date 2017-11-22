@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 订单条目描述表
  * @author wangkaijun
@@ -23,6 +25,7 @@ public class Entry {
 	private String oNo;//订单编号 外键orders
 	private Integer pid;//商品id 外键 product
 	private Integer count;//购买数量
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date createtime;//购买时间
 	public Integer getEid() {
 		return eid;

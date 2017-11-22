@@ -127,12 +127,13 @@ public class ProController {
 	public ModelAndView  futu(Pro_img phs) {
 		ModelAndView mv = new ModelAndView();
 		//System.out.println("ID£º"+product.getPid());
+		String str = "/shop/images/";
 		Pro_img ph = (Pro_img)pro.load(Pro_img.class, phs.getPid());
 		
-		ph.setW_img(phs.getW_img());
-		ph.setA_img(phs.getA_img());
-		ph.setS_img(phs.getS_img());
-		ph.setD_img(phs.getD_img());
+		ph.setW_img(str+phs.getW_img());
+		ph.setA_img(str+phs.getA_img());
+		ph.setS_img(str+phs.getS_img());
+		ph.setD_img(str+phs.getD_img());
 		
 		pro.update(ph);
 		

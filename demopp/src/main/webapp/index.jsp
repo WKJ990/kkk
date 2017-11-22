@@ -30,6 +30,7 @@ width: 100%
       <% String na = request.getParameter("name");
       session.setAttribute("name1", na);
       %>
+      
      
      
  
@@ -122,6 +123,7 @@ width: 100%
 						<ul class="sub-menu-list">
 							<li><a target="myiframe" href="/shop/indent.sw">订单管理</a></li>
 							<li><a target="myiframe" href="/shop/toindent.sw">修改状态</a></li>
+							<li><a target="myiframe" href="/shop/take.sw">已收货订单</a></li>
 						</ul></li>
 					<li class="menu-list"><a href=""><span>管理员管理</span></a>
 						<ul class="sub-menu-list">

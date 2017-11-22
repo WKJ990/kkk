@@ -22,7 +22,8 @@ public class OrderController {
 	public ModelAndView  list() {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("AAAA");
-		mv.addObject("orlist", order.find("from Orders"));
+		String hql = "select o from Orders o where o.state < 5";
+		mv.addObject("orlist", order.find(hql));
 		mv.setViewName("/indent");
 		return mv;
 	}
@@ -31,7 +32,8 @@ public class OrderController {
 	public ModelAndView  tolist() {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("AAAA");
-		mv.addObject("orlist", order.find("from Orders"));
+		String hql = "select o from Orders o where o.state < 5";
+		mv.addObject("orlist", order.find(hql));
 		mv.setViewName("/toindent");
 		return mv;
 	}
@@ -44,6 +46,20 @@ public class OrderController {
 		o.setState(orders.getState());
 		order.update(o);
 		mv.setViewName("redirect:/indent.sw");
+		return mv;
+	}
+	
+	/**
+	 * 订单条目，已收货商品
+	 * @return
+	 */
+	@RequestMapping("/take")
+	public ModelAndView  take() {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("AAAA");
+		//String hql = "select o from Orders o where o.state < 5";
+		
+		mv.setViewName("/indent");
 		return mv;
 	}
 	

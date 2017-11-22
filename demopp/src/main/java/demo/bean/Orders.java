@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 订单信息表
  * @author wangkaijun
@@ -26,6 +28,7 @@ public class Orders {
 	private String sendName;//寄件人姓名
 	private String sendAdress;//寄件人地址
 	private String sendTel;//寄件人电话
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date sendTime;//寄件时间
 	private String payment;//付款方式
 	private String state;//快件状态
